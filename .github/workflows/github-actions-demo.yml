@@ -1,0 +1,26 @@
+name: Python Workflow
+on:
+  push:
+    branches:
+      - master
+jobs:
+  display-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.9.15
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9.15"
+      - name: Display Python version
+        run: python --version"
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.9.15
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9.15"
+      - name: Run pylint
+        run: pylint *.py"
